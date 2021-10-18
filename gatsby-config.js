@@ -8,9 +8,14 @@ module.exports = {
     // You can overwrite values here that are used for the SEO component
     // You can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-minimal-blog/gatsby-config.js
-    siteTitleAlt: `Minimal Blog - Gatsby Theme`,
+    siteTitle: `Oisín Bates`,
+    siteTitleAlt: `Oisín Bates`,
+    siteHeadline: `Minimal Blog - Gatsby Theme from @lekoarts`,
+    siteUrl: `https://oisinbates.com`,
+    siteDescription: `Personal Blog of Oisín Bates`,
+    author: `@oisinbates`,
   },
-  plugins: [
+  plugins: [ 
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       // See the theme's README for all available options
@@ -27,12 +32,12 @@ module.exports = {
         ],
         externalLinks: [
           {
-            name: `Twitter`,
-            url: `https://twitter.com/lekoarts_de`,
+            name: `GitHub`,
+            url: `https://github.com/oisinBates`,
           },
           {
-            name: `Homepage`,
-            url: `https://www.lekoarts.de?utm_source=minimal-blog&utm_medium=Starter`,
+            name: `Linkedin`,
+            url: `https://www.linkedin.com/in/oisinbates/`,
           },
         ],
       },
