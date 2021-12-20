@@ -10,7 +10,7 @@ module.exports = {
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-minimal-blog/gatsby-config.js
     siteTitle: `Oisín Bates`,
     siteTitleAlt: `Oisín Bates`,
-    siteHeadline: `Minimal Blog - Gatsby Theme from @lekoarts`,
+    siteHeadline: `Personal Blog of Oisín Bates`,
     siteUrl: `https://oisinbates.com`,
     siteDescription: `Personal Blog of Oisín Bates`,
     author: `@oisinbates`,
