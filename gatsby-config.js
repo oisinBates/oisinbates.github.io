@@ -8,6 +8,7 @@ module.exports = {
     // You can overwrite values here that are used for the SEO component
     // You can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-minimal-blog/gatsby-config.js
+    pathPrefix: "/oisinbates.github.io",
     siteTitle: `Oisín Bates`,
     siteTitleAlt: `Oisín Bates`,
     siteHeadline: `Personal Blog of Oisín Bates`,
