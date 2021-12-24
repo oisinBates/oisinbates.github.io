@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-tags-query-tsx",
     "path": "/tags",
-    "result": {"data":{"allPost":{"group":[]}},"pageContext":{}},
+    "result": {"data":{"allPost":{"group":[{"fieldValue":"Bash","totalCount":2},{"fieldValue":"Django","totalCount":1},{"fieldValue":"JavaScript","totalCount":3},{"fieldValue":"Python","totalCount":3},{"fieldValue":"R","totalCount":2},{"fieldValue":"Vue.js","totalCount":1}]}},"pageContext":{}},
     "staticQueryHashes": ["2744905544","3090400250","318001574"]}
