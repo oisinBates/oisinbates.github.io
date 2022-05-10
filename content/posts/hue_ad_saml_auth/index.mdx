@@ -24,7 +24,7 @@ One final disclaimer is that the solution discussed here is based upon my experi
 The following diagram [sourced from Azure AD's documentation](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/auth-saml) outlines the flow through which users of your web app are authenticated against your Active Directory and SAML tokens are returned.
 ![SAML Authentication Diagram](./auth_saml.png)
 
-These SAML tokens contain _claims_ (ie. user name, email address etc.) which are used by Hue when each new user logs in for the first time.
+These SAML tokens contain _claims_ (ie. user name, email address etc.) that are used by Hue when each new user logs in for the first time.
 Within your Azure AD console, you will see these claims listed for your current app (if you have not already created a new application in Azure AD, [here's a good tutorial from Microsoft's documentation](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso)).
 ![Azure AD Claims](./azure_ad_claims.png)
 
@@ -51,9 +51,9 @@ As the other formatting options return randomly-generated values, `emailAddress`
 
 In order for our Service Provider (Hue) and Identity Provider (Azure AD) to communicate securely, we must configure an SSL certificate and private key.
 Azure AD automatically creates a certificate for new apps, but as the corresponding private key is not made available to us and Hue requires this, we will need to create a new key/cert and upload to Azure AD. 
-Specically, Azure AD requires a `.pfx` filetype and `rsa` encryption while Hue requires `.PEM` files with a `X.509` certificate. 
+Specifically, Azure AD requires a `.pfx` filetype and `rsa` encryption while Hue requires `.PEM` files with a `X.509` certificate. 
 
-With these requirements in mind we can create the `.pem` key and cert files before converting to `.pfx` and uploading to Azure AD.
+With these requirements in mind, we can create the `.pem` key and cert files before converting to `.pfx` and uploading to Azure AD.
 ```
 openssl req -x509 -newkey rsa:4096 -nodes -keyout hue_key.pem -out hue_crt.pem -days 365
 openssl pkcs12 -inkey hue_key.pem -in hue_crt.pem -export -out hue.pfx
