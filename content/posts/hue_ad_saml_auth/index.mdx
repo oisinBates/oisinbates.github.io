@@ -40,9 +40,9 @@ name_id_format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
 
 We will return to the `hue.ini` configuration in more detail later, but for now let's focus on the `name_id_format` value.
 Deeper context and specific formatting references can be found [in the Azure AD documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy), but at a high level, there are four possible formats that we can choose to configure:
-* `emailAddress` returns NameID claim in e-mail address format
-*  `persistent` returns the NameID claim as a pairwise identifier, a randomly-generated value. This is created once and the same value is returned every subsequent time.
-*  `transient` returns the NameID claim as a randomly generated value. A new value is generated each time a user logs in.
+* `emailAddress` returns the _NameID_ claim in e-mail address format
+*  `persistent` returns the _NameID_ claim as a pairwise identifier, a randomly-generated value. This is created once and the same value is returned every subsequent time.
+*  `transient` returns the _NameID_ claim as a randomly generated value. A new value is generated each time a user logs in.
 *  `unspecified` dictates that your identity provider will determine the claim format that is returned. In Azure AD's case this means that a pairwise identifier is returned.
 
 As the other formatting options return randomly-generated values, `emailAddress` is the obvious choice if we want the ability to easily identify users in the Hue admin console.
