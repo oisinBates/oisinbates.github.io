@@ -1,13 +1,12 @@
 require(`dotenv`).config()
 
 const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
-const googleAnalyticsTrackingId = process.env.GOOGLE_ANALYTICS_ID
 
 module.exports = {
   siteMetadata: {
     // You can overwrite values here that are used for the SEO component
     // You can also add new values here to query them like usual
-    // See all options: https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-minimal-blog/gatsby-config.js
+    // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-minimal-blog/gatsby-config.js
     siteTitle: `Oisín Bates`,
     siteTitleAlt: `Oisín Bates`,
     siteHeadline: `Personal Blog of Oisín Bates`,
@@ -15,7 +14,7 @@ module.exports = {
     siteDescription: `Personal Blog of Oisín Bates`,
     author: `@oisinbates`,
   },
-  plugins: [ 
+  plugins: [
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       // See the theme's README for all available options
@@ -47,22 +46,14 @@ module.exports = {
       options: {
         enableListener: true,
         preconnect: [`https://fonts.gstatic.com`],
-        interval: 300,
-        timeout: 30000,
         // If you plan on changing the font you'll also need to adjust the Theme UI config to edit the CSS
-        // See: https://github.com/LekoArts/gatsby-themes/tree/master/examples/minimal-blog#changing-your-fonts
+        // See: https://github.com/LekoArts/gatsby-themes/tree/main/examples/minimal-blog#changing-your-fonts
         web: [
           {
             name: `IBM Plex Sans`,
             file: `https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap`,
           },
         ],
-      },
-    },
-    googleAnalyticsTrackingId && {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_ID,
       },
     },
     `gatsby-plugin-sitemap`,
@@ -74,7 +65,9 @@ module.exports = {
         description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
         start_url: `/`,
         background_color: `#fff`,
-        theme_color: `#6B46C1`,
+        // This will impact how browsers show your PWA/website
+        // https://css-tricks.com/meta-theme-color-and-trickery/
+        // theme_color: `#6B46C1`,
         display: `standalone`,
         icons: [
           {
@@ -90,9 +83,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-gatsby-cloud`,
-    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -142,6 +132,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-gatsby-cloud`,
     shouldAnalyseBundle && {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
