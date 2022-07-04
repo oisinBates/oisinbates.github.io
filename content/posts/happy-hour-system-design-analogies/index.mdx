@@ -71,7 +71,7 @@ Let’s continue the analogy of a trip to a game/concert. Once you get inside yo
 
 These concepts persist also in the design of many of the  web applications that you use. It may be as obvious as entering a virtual queue before talking to a customer support representative, or perhaps less apparent, like your online food order getting processed. At a high level, you can think of the utility of these queues to be directly comparable to queues in the physical world. 
 
-As sports arenas direct ticket holders through multiple entrances to achieve efficiency in routing foot traffic, web applications direct online traffic to multiple servers via ‘load balancers’. Like a ticket-holder’s entrance being determined by their ticket details, the routing of website traffic can be dictated by metadata like a user's IP address or the 'cookies' on their device. There are other possible strategies for routing traffic through load balancers, but at a high level you can think of load balancers as a tool to ensure efficient utilisiation of servers by directing web traffic evenly across them.
+As sports arenas direct ticket holders through multiple entrances to achieve efficiency in routing foot traffic, web applications direct online traffic to multiple servers via ‘load balancers’. Like a ticket-holder’s entrance being determined by their ticket details, the routing of website traffic can be dictated by metadata like a user's IP address or the 'cookies' on their device. There are other possible strategies for routing traffic through load balancers, but at a high level you can think of load balancers as a tool to ensure efficient utilisation of servers by directing web traffic evenly across them.
 
 
 
@@ -83,7 +83,7 @@ You can call it many names, but everyone hates having to wait, everyone hates �
 
 When web applications need to read data, ‘caching’ enables faster retrieval of data than normal database servers. The primary benefit of ‘caching’ data is that it is stored in a server’s memory, which means the data can be read quicker than if it had to be read from the server’s disk. You could think of this as comparable to the benefit of pulling your favourite drinks from the front of a fridge’s shelf versus having to reach to the very back to retrieve them.
 
-Our office mini-fridge analogy introduced the concept of the physical location of a fridge correlating to the speed at which we could retrieve a drink. The physical location of a caching server also contributes to the speed in which we can read data. Indeed, whether data is traveling over the air or a fiber-optic cable, the distance the data must travel will correlate to the speed in which we can receive it. Due to this constraint, cloud vendors like Amazon Web Services offer the ability to cache data at locations in physical proximity to a user base. Say for example we were building an application that recommended the best bars within a five kilometer radius of a user. There would be a clear benefit in caching Seattle venues from a location in the Pacific Northwest, but less value in caching New York venues in that same physical location. 
+Our office mini-fridge analogy introduced the concept of the physical location of a fridge correlating to the speed at which we could retrieve a drink. The physical location of a caching server also contributes to the speed in which we can read data. Indeed, whether data is traveling over the air or a fiber-optic cable, the distance the data must travel will correlate to the speed in which we can receive it. Due to this constraint, cloud vendors like Amazon Web Services offer the ability to cache data at locations in physical proximity to a user base. Say for example we were building an application that recommended the best bars within a five-kilometer radius of a user. There would be a clear benefit in caching Seattle venues from a location in the Pacific Northwest, but less value in caching New York venues in that same physical location. 
 
 
 
@@ -91,7 +91,7 @@ Our office mini-fridge analogy introduced the concept of the physical location o
 
 Let’s suppose you wanted a drink from another room and needed to phone someone to request it. 
 You could place a new phone call each time you had a question, or you could stay on the same phone call until the drink is delivered, permitting a two-way conversation with real-time updates. 
-Both options have pros and cons. For example, if the consumer valued real-time updates on their order, a two way conversation would be more optimal than multiple short calls. 
+Both options have pros and cons. For example, if the consumer valued real-time updates on their order, a two-way conversation would be more optimal than multiple short calls. 
 Maintaining a long call is not ideal either if, for example, the messenger only has one phone but needs to accommodate drinks orders from multiple people. 
 Like so many choices in systems design, it is a case of weighing up options to choose the best choice for a given scenario.
 
@@ -100,7 +100,7 @@ Like so many choices in systems design, it is a case of weighing up options to c
 Similar to our phone analogy, when you are using an internet-connected application it will communicate with servers via comparable web protocols. 
 Our first option is a standard Hypertext Transfer Protocol (HTTP) connection. 
 This is a unidirectional request for information from our devices (also known as a ‘client’) to a web server. 
-Like phone calls these are typically short requests for information. 
+Like phone calls, these are typically short requests for information. 
 Our second option is a ‘WebSocket’ connection which enables a single connection with multidirectional communication between client and server. 
 If you have ever used an app that showed you real-time updates such as someone’s location or that another user is currently typing a message, you have probably benefited from a WebSocket connection.
 
@@ -110,7 +110,7 @@ If you have ever used an app that showed you real-time updates such as someone�
 Finally, we can merge all of the previous analogies together into a single architecture. Let’s create a simple app with the following requirements, to coordinate the tasks of requesting and delivering drinks:
   - Users can use the app to both request drinks and to accept other users’ drink requests.
   - We will refer to the users requesting drinks as ‘consumers’ and those delivering drinks as ‘messengers’.
-  - From within the app, users can toggle their availability off and on. If they are available to fetch drinks, they will be sent drink requests which they can accept or refuse via the app.
+  - From within the app, users can toggle their availability off and on. If they are available to fetch drinks, they will be sent drink requests that they can accept or refuse via the app.
   -  If a request is not successfully paired with a messenger within three minutes, the request will terminate with the drink consumer notified to try again later.
   - The maximum number of drinks requestable is four. This limitation is intentional, so that orders can be easily carried by the drinks messengers.
 
@@ -122,7 +122,7 @@ The above brings together our previous analogies:
   - Information on locally-available drinks can be loaded via the cache
   - Precise drink inventory is tracked via a database which is sharded based on the regions that drinks are located in.
   - A WebSocket connection is favoured to prioritise real-time updates for drink requests.
-  - New drinks requests are placed into a queue which is used by two 'matchmaker 'services that attempt to match drink consumers with drink messengers. A request is removed from the queue if it is completed, canceled, or three minutes passes without a messenger accepting the request.
+  - New drinks requests are placed into a queue which is used by two 'matchmaker 'services that attempt to match drink consumers with drink messengers. A request is removed from the queue if it is completed, canceled, or three minutes pass without a messenger accepting the request.
 
 
 ## Conclusion
